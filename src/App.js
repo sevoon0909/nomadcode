@@ -1,17 +1,23 @@
 
-import {useState} from 'react';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 function App() {
-    const [counter, setValue] = useState(0);
-    const onClick = () => {
-        setValue((current) => current + 1);
-    }
-    return (
-        <div >
-            <h1>{counter}</h1>
-            <button onClick={onClick}>click me</button>
-        </div>
-    )
+    return(
+            <Router>
+                <Routes>
+                    <Route path="/hello" element={<h1>hello</h1>}></Route>
+                    <Route path="/" element={<Home/>}></Route>
+                    <Route path="/movie/:id" element={<Detail/>}></Route>
+                </Routes>
+            </Router>
+        )
+
 
 }
 
